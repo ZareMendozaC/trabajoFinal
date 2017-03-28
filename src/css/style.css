@@ -17,18 +17,35 @@
   color: #fcc574; }
 
 .selects {
-  margin-top: 100px;
+  margin-top: 50px;
   position: absolute;
   z-index: 1000;
-  background-color: white;
   padding: 3%; }
 
-#buscar {
+#buscar,
+#compartir {
   margin-top: 15px;
   background-color: #fcc574;
   border-color: #fcc574; }
 
 select {
   border-color: #fcc574; }
+
+.labels {
+  background-color: white;
+  padding: 10px; }
+
+#vehiculos {
+  list-style: none;
+  padding-top: 30px;
+  padding: 15px;
+  background-color: white;
+  margin-top: 15px; }
+
+#vehiculos i {
+  margin-top: 100%; }
+
+.precioCa p {
+  margin-top: 7px; }
 
 /*# sourceMappingURL=style.css.map */
