@@ -5,35 +5,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Examen Herramientas Productividad</title>
 	<!--REQUIRED STYLE SHEETS-->
-	<link href="src/css/font-awesome.min.css" rel="stylesheet">
 	<link href="src/css/bootstrap.min.css" rel="stylesheet">
+	<link href="src/css/bootstrap-select.css" rel="stylesheet">
 	<link href="src/css/sweetalert.css" rel="stylesheet">
+	<link href="src/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="src/css/style.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-<div class="navbar  navbar-fixed-top">
+<body  onload="init()"> 
+
+<div class="navbar navbar-fixed-top">
 		<div class="container">
 			<div class="row"> 
-				<div class="col-md-2 col-xs-5"><h2>Carrocomp!</h2></div>
-				<div class="col-md-offset-8 col-md-2 col-xs-5"><h2 text-center>!<i class="fa fa-info-circle" aria-hidden="true"></i></h2></div>
+				<div class="col-md-2 col-xs-4"><h2 class="tituloNav">Carrocomp!</h2></div>
+				<div class="col-md-offset-8 col-md-2 col-xs-4 pull-right"><h2 class="tituloNav text-center"><i class="fa fa-info-circle icono" aria-hidden="true"></i></h2></div>
 			</div>
 		</div>
 	</div><!--END NAV SECTION -->
-
-
 	<div id="home-sec">   
-		<div class="container"  >
-		
-		</div>
+		<div class="container-fluid">
+			<div id="map">
+			</div>
+			<div class="col-md-5 col-md-offset-1">
+ 				<div class="form-group selects">
+	        <label class="control-label">Origen</label><br>
+	          <select class="selectpicker" data-live-search="true">
+  						<option>Hot Dog, Fries and a Soda</option>
+  						<option>Burger, Shake and a Smile</option>
+  						<option>Sugar, Spice and all things nice</option>
+						</select>
+						<br>
+						<br>
+						 <label class="control-label">Destino</label><br>
+	          	<select class="selectpicker" data-live-search="true">
+  						<option>Hot Dog, Fries and a Soda</option>
+  						<option>Burger, Shake and a Smile</option>
+  						<option>Sugar, Spice and all things nice</option>
+						</select>
+						<br>
+						<br>
+	        <button type="submit" class="btn btn-success btn-block" id="buscar">Buscar</button>
+			</div>
+			</div>
+			 
 	</div><!--END HOME SECTION-->  
 	<section id="info"  >
 		<div class="container">
 		</div>
 	</section><!--END ABOUT SECTION-->
 	<section id="calculator" >
-		<div class="container">
+		<div class="container-fluid">
 		</div>
 	</section><!--END PROJECT SECTION-->
 	<!--
@@ -41,8 +61,12 @@
 		2014 www.yourdomain.com | All Right Reserved  
 	</div> END FOOTER SECTION -->
 	<script type="text/javascript" src="src/js/jquery.min.js"></script>
-	<script type="text/javascript" src="src/js/sweetalert.min.js"></script>
 	<script type="text/javascript" src="src/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="src/js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="src/js/sweetalert.min.js"></script>
 	<script type="text/javascript" src="src/js/scroll.js"></script>
+		<script type="text/javascript" src="src/js/custom.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFDpaBtu6nIiWrJ8P9pEzQ3-Ndbr3cenY&callback=initMap"
+        async defer></script>
 </body>
 </html>

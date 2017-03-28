@@ -1,5 +1,37 @@
-$color-primary: blue;
-
-*{
-	outline: 1px solid violet;
+* {
+  
+}
+$color-principal: #fcc574;
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 8%;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat; }
+.navar {
+  background-color: white;
+}
+.tituloNav {
+  margin-top: 10px !important; 
+}
+.icono{
+  color:$color-principal;
+}
+.selects{
+    margin-top: 100px;
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    padding: 3%;
+}
+#buscar{
+  margin-top: 15px;
+  background-color: $color-principal;
+  border-color: $color-principal;
+}
+select{
+  border-color: $color-principal;
+ 
 }
