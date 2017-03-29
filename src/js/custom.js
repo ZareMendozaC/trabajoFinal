@@ -294,8 +294,8 @@ $('#compartir').click(function(){
 function mensajeFinal(_valor) {
     swal(
     {
-        title: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: '+_valor+'</h1>',
-        html: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: '+_valor+'</h1>'
+         title: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: $'+_valor+'CLP</h1>',
+        html: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: $'+_valor+'CLP</h1>'
         
     });
 }

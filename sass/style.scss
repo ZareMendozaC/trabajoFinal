@@ -1,6 +1,7 @@
-* { 
-}
 $color-principal: #fcc574;
+
+*{
+}
 #map {
   position: absolute;
   height: 100%;
@@ -32,12 +33,13 @@ $color-principal: #fcc574;
     border: none;
     padding: 15px;
     font-size: 15px; }
-
+#navSection i{
+  color:#ffc56e;
+}
 .selects{
     margin-top: 50px;
     position: absolute;
     z-index: 1000;
-    
     padding: 3%;
 }
 #buscar,
@@ -48,11 +50,12 @@ $color-principal: #fcc574;
 }
 select{
   border-color: $color-principal;
- 
+  margin-right: 155px;
 }
 .labels{
   background-color: white;
   padding: 10px;
+  margin-right: 155px;
 }
 #vehiculos{
   list-style: none;
@@ -60,10 +63,14 @@ select{
   padding: 15px;
   background-color: white;
   margin-top: 15px;
+  margin-right: 155px
 }
 #vehiculos i{
   margin-top: 100%;
 }
 .precioCa p{
   margin-top: 7px;
+}
+.img-responsive{
+  margin-top: 10px;
 }
