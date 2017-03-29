@@ -200,7 +200,9 @@ function buscar(){
     directionsDisplay = new google.maps.DirectionsRenderer();
         //geocodeLatLng(geocoder, currentMarker.position,'direccion');
     $('#vehiculos').css("display","block");
-$('#compartir').css("display","block");
+    $('#compartir').css("display","block");
+    setObjectLocalStorage("origen",ciudades[origen].distancia);
+    setObjectLocalStorage("destino",ciudades[destino].distancia);
     calcRoute({
                "lat" : origen_coor[0],
                "lng" : origen_coor[1]
@@ -212,34 +214,54 @@ $('#compartir').css("display","block");
 }
 
 
-
+function setObjectLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+function getObjectLocalStorage(key) {
+    var value = localStorage.getItem(key);
+    return JSON.parse(value);
+}
 var costoCombustible= 673;
 var dolar= "$"; 
-var distanciaTOTAL= 2;// FALTA HALLAR
+var distanciaTOTAL=0;
 var precioTOTAL=0;
-
+var dis1= localStorage.getItem("origen");
+var dis2= localStorage.getItem("destino");
+var distanciaTOTAL=parseInt(dis1)+parseInt(dis2);
 
 $('#radio1').click(function(){
     var consumoKL= 12;
-    $('#precioMo').html(dolar+673*consumoKL*distanciaTOTAL);
+    $('#precioMo').html(dolar+Math.floor((distanciaTOTAL/12)*673));
+    setObjectLocalStorage("maximo",2);
+    setObjectLocalStorage("tipofinal",1);
+    setObjectLocalStorage("total",Math.floor((distanciaTOTAL/12)*673));
 })
 $('#radio2').click(function(){
     var consumoKL= 21;
-     $('#precioAu').html(dolar+673*consumoKL*distanciaTOTAL);
+     $('#precioAu').html(dolar+Math.floor((distanciaTOTAL/21)*673));
+     setObjectLocalStorage("maximo",5);
+     setObjectLocalStorage("tipofinal",2);
+      setObjectLocalStorage("total",Math.floor((distanciaTOTAL/21)*673));
 })
 $('#radio3').click(function(){
     var consumoKL= 7;
-    $('#precioMi').html(dolar+673*consumoKL*distanciaTOTAL);
+    $('#precioMi').html(dolar+Math.floor((distanciaTOTAL/7)*673));
+    setObjectLocalStorage("maximo",10);
+    setObjectLocalStorage("tipofinal",3);
+     setObjectLocalStorage("total",Math.floor((distanciaTOTAL/7)*673));
 })
 $('#radio4').click(function(){
     var consumoKL= 6;
-    $('#precioCa').html(dolar+673*consumoKL*distanciaTOTAL);
+    $('#precioCa').html(dolar+Math.floor((distanciaTOTAL/6)*673));
+    setObjectLocalStorage("maximo",3);
+    setObjectLocalStorage("tipofinal",4);
+     setObjectLocalStorage("total",Math.floor((distanciaTOTAL/6)*673));
 })
 
 
 $('#compartir').click(function(){
     var valor= $('#cantPasajeros').val();
-    console.log(valor);
+    // sacar distancia recorrida
     isvalid= true;
     if(valor=="")
     {
@@ -251,13 +273,34 @@ $('#compartir').click(function(){
         sweetAlert("Oops...", "Ingresa un valor positivo", "error");
         isvalid= false;
     }
+    if ((localStorage.getItem("tipofinal")==1)&&(valor>(localStorage.getItem("maximo"))))
+     {
+        sweetAlert("Oops...", "excedio el numero de pasajeros", "error");
+        isvalid=false;
+    }
+     if ((localStorage.getItem("tipofinal")==2)&&(valor>(localStorage.getItem("maximo"))))
+     {
+        sweetAlert("Oops...", "excedio el numero de pasajeros", "error");
+        isvalid=false;
+    }
+     if ((localStorage.getItem("tipofinal")==3)&&(valor>(localStorage.getItem("maximo"))))
+     {
+        sweetAlert("Oops...", "excedio el numero de pasajeros", "error");
+        isvalid=false;
+    }
+     if ((localStorage.getItem("tipofinal")==4)&&(valor>(localStorage.getItem("maximo"))))
+     {
+        sweetAlert("Oops...", "excedio el numero de pasajeros", "error");
+        isvalid=false;
+    }
     else
     {
         if (isvalid) {
+            var valor= parseInt(localStorage.getItem("total"))/valor;
             swal({
                 title: "CarroComp!",
-                text: "Costo por persona",
-                text: precioTOTAL,
+                text: "Costo por persona es: "+valor,
+               
                 type: "success"
 });
         }
