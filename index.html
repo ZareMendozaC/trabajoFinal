@@ -9,27 +9,28 @@
 	<link href="src/css/bootstrap-select.css" rel="stylesheet">
 	<link href="src/css/sweetalert.css" rel="stylesheet">
 	<link href="src/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-	<link href="src/css/style.css" rel="stylesheet">
+	<link href="src/css/main.css" rel="stylesheet">
 </head>
 <body  onload="init()"> 
-
-<div class="navbar navbar-fixed-top">
+<div id="map">
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top" id="navSection">
 		<div class="container">
-			<div class="row"> 
-				<div class="col-md-2 col-xs-4"><h2 class="tituloNav">Carrocomp!</h2></div>
-				<div class="col-md-offset-8 col-md-2 col-xs-4 pull-right"><h2 class="tituloNav text-center"><i class="fa fa-info-circle icono" aria-hidden="true"></i></h2></div>
+		<div class="row"> 
+				<div class="col-md-2 col-xs-4"><img src="src/img/logo-gris.jpg" alt=""></div>
+				<div class="col-md-offset-8 col-md-2 col-xs-4 pull-right">
+				 <a data-toggle="tooltip" data-placement="bottom" class="fa fa-info-circle icono"></a></div>
 			</div>
 		</div>
 	</div><!--END NAV SECTION -->
 	<div id="home-sec">   
 		<div class="container-fluid">
-			<div id="map">
-			</div>
 			<div class="col-md-5 col-md-offset-1 col-xs-5">
  				<div class="form-group selects">
 	        <div class="labels">
-	        <label class="control-label">ORIGEN</label><br>
+	        <label class="control-label">O R I G E N</label><br>
 	          <select id="origen" class="selectpicker" data-live-search="true">
+	          			<option>Seleccione</option>
   						<option>Arica</option>
   						<option>Antofagasta</option>
   						<option>Calama</option>
@@ -48,8 +49,9 @@
 						</select>
 						<br>
 						<br>
-						 <label class="control-label">DESTINO</label><br>
+						 <label class="control-label">D E S T I N O</label><br>
 	          	<select id="destino" class="selectpicker" data-live-search="true">
+	          	<option>Seleccione</option>
   						<option>Arica</option>
   						<option>Antofagasta</option>
   						<option>Calama</option>
@@ -69,7 +71,7 @@
 						<br>
 						<br>
 						</div>
-	          <button type="submit" class="btn btn-success btn-block" id="buscar" onclick="buscar()">Buscar</button>
+	          <button type="submit" class="btn btn-success" id="buscar" onclick="buscar()">Buscar</button>
 			
 			<!--LA SEGUNDA VISTA EL TIPO DE VEHICULO -->
 			
@@ -80,7 +82,7 @@
    		 		<div class="radio col-xs-1 text-center">
    		 			<label><input id="radio1" type="radio" name="optradio" value="1"></label>
    		 		</div>
-   		 		<div class="col-xs-2"><i class="fa fa-car carros text-center" aria-hidden="true"></i></div><div class="col-xs-6"><strong>Motocileta</strong> <br> <p style="font-size: 10px">Máximo 2 pasajeros </p>
+   		 		<div class="col-xs-2"><img src="src/img/moto.jpg" alt="" class="img-responsive"></div><div class="col-xs-6"><strong>Motocileta</strong> <br> <p class="text-center" style="font-size: 10px">Máximo 2 pasajeros </p>
    		 			</div>
    		 		<div class="precioCa col-xs-2 text-center">
    		 			<p id="precioMo">$0 <p>
@@ -90,7 +92,7 @@
    		 		<div class="radio col-xs-1 text-center">
    		 			<label><input id="radio2" type="radio" name="optradio" value="2"></label>
    		 		</div>
-   		 		<div class="col-xs-2"><i class="fa fa-car carros" aria-hidden="true"></i></div>
+   		 		<div class="col-xs-2"><img src="src/img/auto.jpg" alt="" class="img-responsive"></div>
    		 		<div class="col-xs-6"><strong>Automóvil</strong> <br> <p style="font-size: 10px" >Máximo 5 pasajeros </p></div>
    		 		<div class="precioCa col-xs-2 text-center">
    		 			<p id="precioAu">$0 <p>
@@ -99,7 +101,7 @@
    		 	<li class="row">
    		 	<div class="radio col-xs-1 text-center">
    		 			<label><input id="radio3" type="radio" name="optradio" value="3"></label>
-   		 		</div><div class="col-xs-2"><i class="fa fa-car carros" aria-hidden="true"></i></div><div class="col-xs-6"><strong>Minivan</strong> <br> <p style="font-size: 10px">Máximo 10 pasajeros </p></div>
+   		 		</div><div class="col-xs-2"><img src="src/img/van.jpg" alt="" class="img-responsive"></div><div class="col-xs-6"><strong>Minivan</strong> <br> <p style="font-size: 10px">Máximo 10 pasajeros </p></div>
 					<div class="precioCa col-xs-2 text-center">
    		 			<p id="precioMi">$0<p>
    		 		</div>
@@ -107,13 +109,13 @@
    		 	<li class="row">
    		 	<div class="radio col-xs-1 text-center">
    		 			<label><input id="radio4" type="radio" name="optradio" value="4"></label>
-   		 		</div><div class="col-xs-2"><i class="fa fa-car carros" aria-hidden="true"></i></div><div class="col-xs-6"><strong>Camión</strong> <br> <p style="font-size: 10px">Máximo 3 pasajeros </p></div>
+   		 		</div><div class="col-xs-2"><img src="src/img/camion.jpg" alt="" class="img-responsive"></div><div class="col-xs-6"><strong>Camión</strong> <br> <p style="font-size: 10px">Máximo 3 pasajeros </p></div>
    		 		<div class="precioCa col-xs-2 text-center">
    		 			<p id="precioCa">$0 <p>
    		 		</div></li>
    		 		<h5>Cantidad de pasajeros</h5><input id="cantPasajeros" type="text" name="cantidad">
   		</ul>
-		  <button style="display: none" type="submit" class="btn btn-success btn-block" id="compartir">Compartir carro</button>
+		  <button style="display: none" type="submit" class="btn btn-success" id="compartir">Compartir carro</button>
 		</div>
 			</div>
 			</div> 

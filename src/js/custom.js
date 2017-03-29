@@ -136,8 +136,6 @@ function centrarMapa(position){
 
 function calcRoute(start, end) { //lat, long
     var bounds = new google.maps.LatLngBounds();
-    //bounds.extend(start);
-   // bounds.extend(end);
     miMapa.fitBounds(bounds);
     var request = {
         origin: start,
@@ -155,22 +153,11 @@ function calcRoute(start, end) { //lat, long
     });
 }
 
-// function geocodeLatLng(geocoder, position, id) {
-
-//   var latlng = position;
-//   geocoder.geocode({'location': latlng}, function(results, status) {
-//     if (status === google.maps.GeocoderStatus.OK) {
-//       if (results[0]) {
-//         $('#'+id).html(results[0].formatted_address);
-//         miubicacion= results[0].formatted_address;
-//       } else {
-//         window.alert('No results found');
-//       }
-//     } else {
-//       window.alert('Geocoder failed due to: ' + status);
-//     }
-//   });
-// }
+$('[data-toggle="tooltip"]').tooltip({
+        title:"carrocomp! La nueva forma de moverte en la ciudad. Con carrocomp! puedes compartir tu viaje con amigos y cobrar el costo equivalente.",
+        content: "<img src='../img/logo-peach.jpg' alt=''>",
+        animation: true}
+);
 
 function init(){
     if(navigator.geolocation){
@@ -186,7 +173,10 @@ function init(){
 function buscar(){
     var origen = $('#origen').val();
     var destino = $('#destino').val();
-
+    if ((origen=="Seleccione")||(destino=="Seleccione")) {
+        sweetAlert("Oops...", "escoge un destino y origen", "error");
+    }
+    else{
     var origen_coor = ciudades[origen].coordenadas;
     var destino_coor = ciudades[destino].coordenadas;
 
@@ -211,6 +201,7 @@ function buscar(){
                "lat" : destino_coor[0],
                "lng" : destino_coor[1]
             });
+    }
 }
 
 
@@ -227,48 +218,40 @@ var distanciaTOTAL=0;
 var precioTOTAL=0;
 var dis1= localStorage.getItem("origen");
 var dis2= localStorage.getItem("destino");
-var distanciaTOTAL=parseInt(dis1)-parseInt(dis2);
-if (distanciaTOTAL<0){
-    distanciaTOTAL= distanciaTOTAL*-1;
-}
-else
-{
-    distanciaTOTAL= distanciaTOTAL;
-}
+var distanciaTOTAL=parseInt(dis1)+parseInt(dis2);
 
 $('#radio1').click(function(){
     var consumoKL= 12;
-    $('#precioMo').html(dolar+Math.floor((distanciaTOTAL/12)*673));
+    $('#precioMo').html(dolar+Math.round((distanciaTOTAL/12)*673));
     setObjectLocalStorage("maximo",2);
     setObjectLocalStorage("tipofinal",1);
-    setObjectLocalStorage("total",Math.floor((distanciaTOTAL/12)*673));
+    setObjectLocalStorage("total",Math.round((distanciaTOTAL/12)*673));
 })
 $('#radio2').click(function(){
     var consumoKL= 21;
-     $('#precioAu').html(dolar+Math.floor((distanciaTOTAL/21)*673));
+     $('#precioAu').html(dolar+Math.round((distanciaTOTAL/21)*673));
      setObjectLocalStorage("maximo",5);
      setObjectLocalStorage("tipofinal",2);
-      setObjectLocalStorage("total",Math.floor((distanciaTOTAL/21)*673));
+      setObjectLocalStorage("total",Math.round((distanciaTOTAL/21)*673));
 })
 $('#radio3').click(function(){
     var consumoKL= 7;
-    $('#precioMi').html(dolar+Math.floor((distanciaTOTAL/7)*673));
+    $('#precioMi').html(dolar+Math.round((distanciaTOTAL/7)*673));
     setObjectLocalStorage("maximo",10);
     setObjectLocalStorage("tipofinal",3);
-     setObjectLocalStorage("total",Math.floor((distanciaTOTAL/7)*673));
+     setObjectLocalStorage("total",Math.round((distanciaTOTAL/7)*673));
 })
 $('#radio4').click(function(){
     var consumoKL= 6;
-    $('#precioCa').html(dolar+Math.floor((distanciaTOTAL/6)*673));
+    $('#precioCa').html(dolar+Math.round((distanciaTOTAL/6)*673));
     setObjectLocalStorage("maximo",3);
     setObjectLocalStorage("tipofinal",4);
-     setObjectLocalStorage("total",Math.floor((distanciaTOTAL/6)*673));
+     setObjectLocalStorage("total",Math.round((distanciaTOTAL/6)*673));
 })
 
 
 $('#compartir').click(function(){
     var valor= $('#cantPasajeros').val();
-    // sacar distancia recorrida
     isvalid= true;
     if(valor=="")
     {
@@ -304,11 +287,15 @@ $('#compartir').click(function(){
     {
         if (isvalid) {
             var valor= parseInt(localStorage.getItem("total"))/valor;
-            swal({
-                title: "CarroComp!",
-                text: "Costo por persona es: "+valor,
-                type: "success"
-});
+            mensajeFinal(valor);
         }
     }
 })
+function mensajeFinal(_valor) {
+    swal(
+    {
+        title: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: '+_valor+'</h1>',
+        html: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: '+_valor+'</h1>'
+        
+    });
+}

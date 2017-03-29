@@ -1,6 +1,6 @@
-* { 
+*{
+ 
 }
-$color-principal: #fcc574;
 #map {
   position: absolute;
   height: 100%;
@@ -32,7 +32,9 @@ $color-principal: #fcc574;
     border: none;
     padding: 15px;
     font-size: 15px; }
-
+#navSection i{
+  color:#ffc56e;
+}
 .selects{
     margin-top: 50px;
     position: absolute;
@@ -43,16 +45,19 @@ $color-principal: #fcc574;
 #buscar,
 #compartir{
   margin-top: 15px;
-  background-color: $color-principal;
-  border-color: $color-principal;
+  background-color: #fcc574;
+      width: 350px
+  border-color: #fcc574;
 }
 select{
-  border-color: $color-principal;
+  border-color: #fcc574;
+  margin-right: 155px;
  
 }
 .labels{
   background-color: white;
   padding: 10px;
+  margin-right: 155px;
 }
 #vehiculos{
   list-style: none;
@@ -60,6 +65,7 @@ select{
   padding: 15px;
   background-color: white;
   margin-top: 15px;
+  margin-right: 155px
 }
 #vehiculos i{
   margin-top: 100%;
