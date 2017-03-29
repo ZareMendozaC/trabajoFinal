@@ -227,7 +227,14 @@ var distanciaTOTAL=0;
 var precioTOTAL=0;
 var dis1= localStorage.getItem("origen");
 var dis2= localStorage.getItem("destino");
-var distanciaTOTAL=parseInt(dis1)+parseInt(dis2);
+var distanciaTOTAL=parseInt(dis1)-parseInt(dis2);
+if (distanciaTOTAL<0){
+    distanciaTOTAL= distanciaTOTAL*-1;
+}
+else
+{
+    distanciaTOTAL= distanciaTOTAL;
+}
 
 $('#radio1').click(function(){
     var consumoKL= 12;
@@ -300,7 +307,6 @@ $('#compartir').click(function(){
             swal({
                 title: "CarroComp!",
                 text: "Costo por persona es: "+valor,
-               
                 type: "success"
 });
         }
