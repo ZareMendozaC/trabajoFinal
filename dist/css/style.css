@@ -1,0 +1,80 @@
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 8%;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat; }
+
+#navSection {
+  background: #fff;
+  border: none; }
+
+#navSection img {
+  width: 200px;
+  padding: 8px 0; }
+
+#navSection a {
+  font-size: 30px;
+  float: right;
+  color: #ffc56e;
+  top: 12px; }
+
+#navSection a:hover {
+  text-decoration: none; }
+
+#navSection .tooltip-inner {
+  position: absolute;
+  top: 15px;
+  width: 200px;
+  right: -15px;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 15px;
+  font-size: 15px; }
+
+#navSection i {
+  color: #ffc56e; }
+
+.selects {
+  margin-top: 50px;
+  position: absolute;
+  z-index: 1000;
+  padding: 3%; }
+
+#buscar,
+#compartir {
+  margin-top: 15px;
+  background-color: #fcc574;
+  border-color: #fcc574; }
+
+select {
+  border-color: #fcc574;
+  margin-right: 155px; }
+
+.labels {
+  background-color: white;
+  padding: 10px;
+  margin-right: 155px; }
+
+#vehiculos {
+  list-style: none;
+  padding-top: 30px;
+  padding: 15px;
+  background-color: white;
+  margin-top: 15px;
+  margin-right: 155px; }
+
+#vehiculos i {
+  margin-top: 100%; }
+
+.precioCa p {
+  margin-top: 7px;
+  margin-left: -25px; }
+
+.img-responsive {
+  margin-top: 10px; }
+
+/*# sourceMappingURL=style.css.map */

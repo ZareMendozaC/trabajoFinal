@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
+/*var rename = require('gulp-rename');*/
 var notify = require('gulp-notify');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
@@ -50,15 +50,6 @@ gulp.task('selectjs', function(){
     return gulp.src('./node_modules/bootstrap-select/dist/js/bootstrap-select.min.js').pipe(gulp.dest('./src/js'));
 });
 
-gulp.task('sweetalert2css', function(){
-	// tarea sweetalert css
-    return gulp.src('./node_modules/sweetalert2/dist/sweetalert2.css').pipe(gulp.dest('./src/css'));
-});
 
-gulp.task('sweetalert2js', function(){
-	// tarea sweetalert js
-    return gulp.src('./node_modules/sweetalert2/dist/sweetalert2.min.js').pipe(gulp.dest('./src/js'));
-});
-
-gulp.task('default', ['images', 'style', 'script', 'jquery', 'sweetalertcss', 'sweetalertjs', 'fonts', 'selectcss', 'selectjs', 'sweetalert2css', 'sweetalert2js']);
+gulp.task('default', ['images', 'style', 'script', 'jquery', 'sweetalertcss', 'sweetalertjs', 'fonts', 'selectcss', 'selectjs']);
 
