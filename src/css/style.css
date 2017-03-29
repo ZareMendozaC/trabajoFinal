@@ -71,7 +71,8 @@ select {
   margin-top: 100%; }
 
 .precioCa p {
-  margin-top: 7px; }
+  margin-top: 7px;
+  margin-left: -25px; }
 
 .img-responsive {
   margin-top: 10px; }

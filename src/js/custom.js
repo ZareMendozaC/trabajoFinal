@@ -117,12 +117,6 @@ var miubicacion='no cargo la ubicacion';
 var currentMarker = null;
 var directionsDisplay = null;
 var directionsService = null;
-/*var geocoder = new google.maps.Geocoder;
-    directionsService = new google.maps.DirectionsService();
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    geocodeLatLng(geocoder, currentMarker.position,'direccion');*/
-
-
 
 function centrarMapa(position){
     miMapa.setZoom(16);
@@ -155,7 +149,7 @@ function calcRoute(start, end) { //lat, long
 
 $('[data-toggle="tooltip"]').tooltip({
         title:"carrocomp! La nueva forma de moverte en la ciudad. Con carrocomp! puedes compartir tu viaje con amigos y cobrar el costo equivalente.",
-        content: "<img src='../img/logo-peach.jpg' alt=''>",
+        content: "<img src='src/img/logo-peach.jpg' alt=''>",
         animation: true}
 );
 
@@ -188,7 +182,6 @@ function buscar(){
     var geocoder = new google.maps.Geocoder;
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
-        //geocodeLatLng(geocoder, currentMarker.position,'direccion');
     $('#vehiculos').css("display","block");
     $('#compartir').css("display","block");
     setObjectLocalStorage("origen",ciudades[origen].distancia);
@@ -203,8 +196,6 @@ function buscar(){
             });
     }
 }
-
-
 function setObjectLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
@@ -248,8 +239,6 @@ $('#radio4').click(function(){
     setObjectLocalStorage("tipofinal",4);
      setObjectLocalStorage("total",Math.round((distanciaTOTAL/6)*673));
 })
-
-
 $('#compartir').click(function(){
     var valor= $('#cantPasajeros').val();
     isvalid= true;
@@ -294,8 +283,8 @@ $('#compartir').click(function(){
 function mensajeFinal(_valor) {
     swal(
     {
-         title: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: $'+_valor+'CLP</h1>',
-        html: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: $'+_valor+'CLP</h1>'
+        title: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: $'+_valor+' CLP</h1>',
+        html: '<img src="src/img/logo-peach.jpg" alt="" class="logo-peach" width="200px"></br><h1>Costo por persona es: $'+_valor+' CLP</h1>'
         
     });
 }
